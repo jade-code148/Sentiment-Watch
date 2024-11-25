@@ -31,13 +31,9 @@ def fetch_stock_data(api_key, symbol, function, interval=None):
 
 def process_data(data, function):
     time_series_key = {
-        'TIME_SERIES_INTRADAY': 'Time Series (5min)',
-        'TIME_SERIES_DAILY': 'Time Series (Daily)',
-        'TIME_SERIES_DAILY_ADJUSTED': 'Time Series (Daily)',
-        'TIME_SERIES_WEEKLY': 'Weekly Time Series',
-        'TIME_SERIES_WEEKLY_ADJUSTED': 'Weekly Adjusted Time Series',
-        'TIME_SERIES_MONTHLY': 'Monthly Time Series',
-        'TIME_SERIES_MONTHLY_ADJUSTED': 'Monthly Adjusted Time Series'
+    
+        'TIME_SERIES_DAILY': 'Time Series (Daily)'
+        
     }
 
     if time_series_key[function] in data:
@@ -195,13 +191,9 @@ with st.sidebar:
     st.header("Filters")
     symbol = st.text_input("Stock Symbol (e.g., IBM):")
     function = st.selectbox("Data Interval:", [
-        'TIME_SERIES_INTRADAY',
-        'TIME_SERIES_DAILY',
-        'TIME_SERIES_DAILY_ADJUSTED',
-        'TIME_SERIES_WEEKLY',
-        'TIME_SERIES_WEEKLY_ADJUSTED',
-        'TIME_SERIES_MONTHLY',
-        'TIME_SERIES_MONTHLY_ADJUSTED'
+      
+        'TIME_SERIES_DAILY'
+       
     ])
     interval = None
     if function == 'TIME_SERIES_INTRADAY':
